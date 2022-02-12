@@ -5,7 +5,7 @@ import Product from "../models/productModel.js";
 // @route   GET api/product
 // @access   Public
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = 10;
+  const pageSize = 8;
   const page = Number(req.query.pageNumber) || 1;
 
   const keyword = req.query.keyword
@@ -19,6 +19,7 @@ const getProducts = asyncHandler(async (req, res) => {
   const count = await Product.countDocuments({ ...keyword });
 
   const products = await Product.find({ ...keyword })
+    .populate("category", "name")
     .limit(pageSize)
     .skip(pageSize * (page - 1));
 
@@ -29,10 +30,31 @@ const getProducts = asyncHandler(async (req, res) => {
 // @route    GET api/product/:id
 // @access   Public
 const getProductById = asyncHandler(async (req, res) => {
-  const product = await Product.findById(req.params.id);
+  const product = await Product.findById(req.params.id).populate(
+    "category",
+    "name"
+  );
 
   if (product) {
     res.json(product);
+  } else {
+    res.status(404);
+    throw new Error("Product not found");
+  }
+});
+
+// @desc     Fetch single product
+// @route    GET api/product/category/:id
+// @access   Public
+const getProductByCategoryId = asyncHandler(async (req, res) => {
+  console.log(req.params.id);
+  const products = await Product.find({ category: req.params.id }).populate(
+    "category",
+    "name"
+  );
+
+  if (products) {
+    res.json({ products });
   } else {
     res.status(404);
     throw new Error("Product not found");
@@ -162,4 +184,5 @@ export {
   updateProduct,
   createProductReview,
   getTopProducts,
+  getProductByCategoryId,
 };

@@ -8,6 +8,8 @@ import productRoutes from "./routes/productRoutes.js";
 import rentRoutes from "./routes/rentRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
+
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
@@ -25,6 +27,7 @@ app.use(express.json());
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/rents", rentRoutes);
+app.use("/api/category", categoryRoutes);
 app.use("/api/upload", uploadRoutes);
 
 app.get("/api/config/paypal", (req, res) =>

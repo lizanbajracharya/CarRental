@@ -20,7 +20,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AquaStoreBackend" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -37,6 +37,7 @@
       <option name="presentableId" value="Default" />
       <updated>1643804649779</updated>
       <workItem from="1643804650905" duration="206000" />
+      <workItem from="1643805817163" duration="159000" />
     </task>
     <task id="LOCAL-00001" summary="FIrst commit">
       <created>1643804762019</created>
@@ -60,13 +61,13 @@
       <screen x="1920" y="234" width="1366" height="738" />
     </state>
     <state x="2228" y="234" key="CommitChangelistDialog2/1920.234.1366.738/0.0.1920.1050@1920.234.1366.738" timestamp="1643804760986" />
-    <state x="2383" y="344" key="FileChooserDialogImpl" timestamp="1643804734319">
+    <state x="2383" y="344" key="FileChooserDialogImpl" timestamp="1643805976186">
       <screen x="1920" y="234" width="1366" height="738" />
     </state>
-    <state x="2383" y="344" key="FileChooserDialogImpl/1920.234.1366.738/0.0.1920.1050@1920.234.1366.738" timestamp="1643804734319" />
-    <state x="2195" y="336" key="Vcs.Push.Dialog.v2" timestamp="1643804841230">
+    <state x="2383" y="344" key="FileChooserDialogImpl/1920.234.1366.738/0.0.1920.1050@1920.234.1366.738" timestamp="1643805976186" />
+    <state x="2195" y="336" key="Vcs.Push.Dialog.v2" timestamp="1643805829461">
       <screen x="1920" y="234" width="1366" height="738" />
     </state>
-    <state x="2195" y="336" key="Vcs.Push.Dialog.v2/1920.234.1366.738/0.0.1920.1050@1920.234.1366.738" timestamp="1643804841230" />
+    <state x="2195" y="336" key="Vcs.Push.Dialog.v2/1920.234.1366.738/0.0.1920.1050@1920.234.1366.738" timestamp="1643805829461" />
   </component>
 </project>
