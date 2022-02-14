@@ -28,32 +28,54 @@ const authUser = asyncHandler(async (req, res) => {
 // @route    POST api/users
 // @access   Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body
+  const { name, email, password } = req.body;
 
-  const userExists = await User.findOne({ email })
+  const userExists = await User.findOne({ email });
 
   if (userExists) {
-    res.status(400)
-    throw new Error('User already Exists')
+    res.status(400);
+    throw new Error("User already Exists");
   }
+  const checkUser = await User.find({});
 
-  const user = await User.create({
-    name,
-    email,
-    password,
-  })
+  if (checkUser.length !== 0) {
+    const user = await User.create({
+      name,
+      email,
+      password,
+    });
 
-  if (user) {
-    res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      token: generateToken(user._id),
-    })
+    if (user) {
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        token: generateToken(user._id),
+      });
+    } else {
+      res.status(400);
+      throw new Error("Invalid user data");
+    }
   } else {
-    res.status(400)
-    throw new Error('Invalid user data')
+    const user = await User.create({
+      name,
+      email,
+      password,
+    });
+
+    if (user) {
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: true,
+        token: generateToken(user._id),
+      });
+    } else {
+      res.status(400);
+      throw new Error("Invalid user data");
+    }
   }
 })
 
